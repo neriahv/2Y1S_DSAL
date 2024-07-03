@@ -1,4 +1,4 @@
 **First Semester:**
   
-      **[PRELIMS]**
+      [PRELIMS]
           - Module 1: Collection (List & Tuple)
