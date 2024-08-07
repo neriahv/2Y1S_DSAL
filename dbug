@@ -1,0 +1,54 @@
+
+import os
+
+def create_and_write_file(filename, content):
+    try:
+        with open(filename, 'w') as file:
+            file.write(content)
+        print(f"File '{filename}' created and content written.")
+    except Exception as e:
+        print(f"Error writing to file: {e}")
+
+def read_file(filename):
+    try:
+        with open(filename, 'r') as file:
+            content = file.read()
+        print(f"Content of '{filename}':\n{content}")
+    except FileNotFoundError:
+        print(f"File '{filename}' not found.")
+    except Exception as e:
+        print(f"Error reading file: {e}")
+
+def append_to_file(filename, content):
+    try:
+        with open(filename, 'a') as file:
+            file.write(content)
+        print(f"Content appended to '{filename}'.")
+    except FileNotFoundError:
+        print(f"File '{filename}' not found.")
+    except Exception as e:
+        print(f"Error appending to file: {e}")
+
+def delete_file(filename):
+    try:
+        os.remove(filename)
+        print(f"File '{filename}' not found.")
+    except FileNotFoundError:
+        print(f"File '{filename}' deleted.")
+    except Exception as e:
+        print(f"Error deleting file: {e}")
+
+# Define the filename and content
+filename = 'example.txt'
+initial_content = "Hello, World1"
+additional_content = "\nHello, World2"
+
+create_and_write_file(filename, initial_content)
+
+read_file(filename)
+
+append_to_file(filename, additional_content)
+
+read_file(filename)
+
+delete_file(filename)
